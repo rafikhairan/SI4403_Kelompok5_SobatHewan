@@ -40,6 +40,7 @@ Route::get('/shop', function () {
 });
 
 Route::get('/myprofile', [ProfileController::class, 'index']);
+Route::post('/myprofile', [ProfileController::class, 'update']);
 
 Route::get('/dashboard', function () {
     return view('admin.dashboard');
