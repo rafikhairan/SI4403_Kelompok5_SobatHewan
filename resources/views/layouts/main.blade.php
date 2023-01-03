@@ -80,7 +80,7 @@
           <p class="fw-bold">Follow on social</p>
           <div class="d-flex">
             <a class="text-muted" href="" style="font-size: 40px"><i class="bi bi-facebook"></i></a>
-            <a class="text-muted ms-4" href="" style="font-size: 40px"><i class="bi bi-instagram"></i></a>
+            <a class="text-muted ms-4" href="https://www.instagram.com/aliansoftware.id" style="font-size: 40px"><i class="bi bi-instagram"></i></a>
           </div>
         </div>
         <div class="col-3 text-end">

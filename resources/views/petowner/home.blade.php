@@ -140,7 +140,7 @@
         <h4 class="mb-4 article-title">5 Tips on Dealing with High Energy Dogs</h4>
         <span class="text-muted">Tip 1: A Tired Dog is a Good Dog</span>
         <p class="text-muted">A tired dog is a good dog! A treadmill is a GREAT way to burn off a little extra energy before bedtime, on rainy days, or when you simply have a dog who needs a little extra burn before their daily excursions. I WALK my dogs predominately on the treadmill. The idea is not to get their fitness level so high that it exceeds your energy level, but to burn off a bit of energy in a slow, controlled fashion.</p>
-        <a href="" class="btn button-secondary px-3 py-2 mt-3 rounded-1">Read More <i class="bi bi-chevron-right ms-2"></i></a>
+        <a href="{{URL::to('article')}}" class="btn button-secondary px-3 py-2 mt-3 rounded-1">Read More <i class="bi bi-chevron-right ms-2"></i></a>
       </div>
     </div>
   </div>
