@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-  <div class="container">
+  <div class="container dashboard-title">
     <div class="underline position-relative dashboard">
       <h3 class="m-0 mb-5">Admin Dashboard</h3>
     </div>
@@ -16,7 +16,7 @@
       </div>
       <div class="col-4 mb-4">
         <div class="rounded-3 d-flex flex-column align-items-center justify-content-evenly shadow dashboard-info">
-          <h2>1</h2>
+          <h2>{{ $productCount }}</h2>
           <div class="bg-white rounded d-flex align-items-center justify-content-center dashboard-info-text">
             <h4 class="m-0">Products</h4>
           </div>
@@ -24,7 +24,7 @@
       </div>
       <div class="col-4 mb-4">
         <div class="rounded-3 d-flex flex-column align-items-center justify-content-evenly shadow dashboard-info">
-          <h2>2</h2>
+          <h2>{{ $petOwnerCount }}</h2>
           <div class="bg-white rounded d-flex align-items-center justify-content-center dashboard-info-text">
             <h4 class="m-0">Pet Owners</h4>
           </div>
@@ -32,9 +32,9 @@
       </div>
       <div class="col-4 mb-4">
         <div class="rounded-3 d-flex flex-column align-items-center justify-content-evenly shadow dashboard-info">
-          <h2>1</h2>
+          <h2>{{ $vetCount }}</h2>
           <div class="bg-white rounded d-flex align-items-center justify-content-center dashboard-info-text">
-            <h4 class="m-0">Doctors</h4>
+            <h4 class="m-0">Vets</h4>
           </div>
         </div>
       </div>

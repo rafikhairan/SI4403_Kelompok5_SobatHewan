@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-  <div class="container">
+  <div class="container dashboard-title">
     <div class="underline position-relative dashboard">
       <h3 class="m-0 mb-5">Orders</h3>
     </div>
