@@ -6,13 +6,13 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Sobat Hewan</title>
   {{-- My CSS --}}
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="/css/style.css">
   
   {{-- Bootstrap --}}
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
   
   {{-- Icon --}}
-  <link rel="icon" type="png" href="images/web-icon.png">
+  <link rel="icon" type="png" href="/images/web-icon.png">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
   <script src="https://kit.fontawesome.com/5173488c2b.js" crossorigin="anonymous"></script>
 </head>
@@ -20,7 +20,7 @@
   {{-- Awal Navbar --}}
   <nav class="navbar navbar-expand-lg fixed-top bg-white">
     <div class="container pb-2">
-      <a class="navbar-brand" href="#"><img src="images/logo.png" alt="Logo" width="200px"></a>
+      <a class="navbar-brand" href="#"><img src="/images/logo.png" alt="Logo" width="200px"></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -29,11 +29,11 @@
           <a class="nav-link mx-2 {{ Request::is('/') ? 'active-link' : '' }}" href="/">Home</a>
           <a class="nav-link mx-2 {{ Request::is('vet') ? 'active-link' : '' }}" href="/vet">Vet</a>
           <a class="nav-link mx-2 {{ Request::is('shop') ? 'active-link' : '' }}" href="/shop">Shop</a>
-          <a class="nav-link mx-2 {{ Request::is('article') ? 'active-link' : '' }}" href="/article">Article</a>
+          <a class="nav-link mx-2 {{ Request::is('articles*') ? 'active-link' : '' }}" href="/articles">Articles</a>
           @auth  
             <div class="nav-item dropdown">
               <a class="nav-link align-items-center d-flex {{ Request::is('myprofile') || Request::is('petprofile') ? 'active-link' : '' }}" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                {{ auth()->user()->name }} <img class="ms-2 rounded-circle nav-profile-picture" src="images/no-pp.jpg" alt="Profile Picture">
+                {{ auth()->user()->petOwner->name }} <img class="ms-2 rounded-circle nav-profile-picture" src="@if(auth()->user()->profile_picture != null){{ asset('storage/images/profile-pictures/' . auth()->user()->petOwner->rofile_picture) }}@else{{ "/images/no-pp.jpg" }}@endif" alt="{{ auth()->user()->petOwner->name }}">
               </a>
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="/myprofile"><i class="fa-solid fa-user me-2"></i> My Profile</a></li>

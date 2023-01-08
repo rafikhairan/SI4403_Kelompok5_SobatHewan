@@ -2,8 +2,8 @@
 
 @section('left-side')
   <div class="col-5 d-flex rounded-4 h-100 position-relative login">
-    <div class="position-absolute back-container">
-      <a href="/"><i class="fa-solid fa-chevron-left text-white back"></i></a>
+    <div class="position-absolute home-container">
+      <a href="/"><i class="fa-solid fa-home text-white home"></i></a>
     </div>
   </div>
 @endsection
@@ -16,14 +16,14 @@
       @if (session()->has('login-failed'))
         <div class='alert alert-danger alert-dismissible' role='alert'>
           <span>{{ session('login-failed') }}</span>
-          <button type="button" class="btn-close text-danger" data-bs-dismiss="alert" aria-label="Close"></button>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
       @endif
       <form action="/login" method="post">
         @csrf
         <div class="mb-2">
           <label for="email" class="form-label @error('email') text-danger @enderror">Email</label>
-          <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" value="{{ old('email') }}" required>
+          <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" value="{{ old('email') }}">
           @error('email')
             <div class="invalid-feedback text-danger">
               {{ $message }}
@@ -32,7 +32,7 @@
         </div>
         <div class="mb-2">
           <label for="password" class="form-label">Password</label>
-          <input type="password" class="form-control" id="password" name="password" required>
+          <input type="password" class="form-control" id="password" name="password">
         </div>
         <div class="form-check mb-2">
           <input class="form-check-input" type="checkbox" id="remember" name="remember">

@@ -33,7 +33,7 @@
         </div>
         <div class="col-4">
           <div class="border border-2 rounded-4 p-4 text-center">
-            <img class="rounded-4 profile-picture" src="images/@if(auth()->user()->profile_picture != null){{ auth()->user()->profile_picture }}@else{{ "no-pp.jpg" }}@endif" alt="{{ auth()->user()->name }}"/>
+            <img class="rounded-4 profile-picture img-fluid" src="@if(auth()->user()->profile_picture != null){{ asset('storage/images/profile-pictures/' . auth()->user()->petOwner->rofile_picture) }}@else{{ "/images/no-pp.jpg" }}@endif" alt="{{ auth()->user()->petOwner->name }}"/>
           </div>
         </div>
         <div class="col-8 mt-4">
@@ -71,11 +71,11 @@
           <div class="border border-2 rounded-4 p-4">
             <div class="mb-2">
               <label for="email" class="form-label">Email</label>
-              <input type="email" class="form-control" id="email" name="email" value="{{ auth()->user()->email }}" autofocus>
+              <input type="email" class="form-control" id="email" name="email" value="{{ auth()->user()->email }}" readonly>
             </div>
             <div class="mb-2">
               <label for="name" class="form-label">Name</label>
-              <input type="text" class="form-control" id="name" name="name" value="{{ auth()->user()->name }}">
+              <input type="text" class="form-control" id="name" name="name" value="{{ auth()->user()->name }}" autofocus>
             </div>
             <div class="mb-2">
               <label for="phone" class="form-label">Phone Number</label>
@@ -93,8 +93,8 @@
         </div>
         <div class="col-4">
           <div class="border border-2 rounded-4 p-4 text-center">
-            <img class="rounded-4 profile-picture img-preview" alt="Profile Picture Preview" style="display: none" />
-            <label for="image" class="position-relative bg-light change-img">
+            <img class="rounded-4 img-fluid profile-picture img-preview" alt="Profile Picture Preview" style="display: none" />
+            <label for="image" class="position-relative bg-light img-fluid change-img">
               <i class="fa-solid fa-plus"></i>
             </label>
             <input type="file" class="d-none" name="image" id="image" accept="image/*" onchange="previewImage()" />
@@ -137,8 +137,8 @@
       oFReader.onload = function(oFREvent) {
         imgPreview.src = oFREvent.target.result;
         changeImg.style.display = 'none';
+      }
     }
-  }
   </script>
 @endsection
 

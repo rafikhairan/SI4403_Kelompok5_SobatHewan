@@ -2,8 +2,8 @@
 
 @section('left-side')
   <div class="col-5 d-flex rounded-4 h-100 position-relative register">
-    <div class="position-absolute back-container">
-      <a href="/"><i class="fa-solid fa-chevron-left text-white back"></i></a>
+    <div class="position-absolute home-container">
+      <a href="/"><i class="fa-solid fa-home text-white home"></i></a>
     </div>
   </div>
 @endsection
@@ -17,7 +17,7 @@
         @csrf
         <div class="mb-2">
           <label for="email" class="form-label @error('email') text-danger @enderror">Email</label>
-          <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" value="{{ old('email') }}" required>
+          <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" value="{{ old('email') }}">
           @error('email')
             <div class="invalid-feedback text-danger">
               {{ $message }}
@@ -26,7 +26,7 @@
         </div>
         <div class="mb-2">
           <label for="name" class="form-label @error('name') text-danger @enderror">Name</label>
-          <input type="name" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name') }}" required>
+          <input type="name" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name') }}">
           @error('name')
             <div class="invalid-feedback text-danger">
               {{ $message }}
@@ -35,7 +35,7 @@
         </div>
         <div class="mb-2">
           <label for="password" class="form-label @error('password') text-danger @enderror">Password</label>
-          <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password" required>
+          <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password">
           @error('password')
             <div class="invalid-feedback text-danger">
               {{ $message }}
@@ -44,7 +44,7 @@
         </div>
         <div class="mb-2">
           <label for="confirm_password" class="form-label @error('confirm_password') text-danger @enderror">Confirm Password</label>
-          <input type="password" class="form-control @error('confirm_password') is-invalid @enderror" id="confirm_password" name="confirm_password" required>
+          <input type="password" class="form-control @error('confirm_password') is-invalid @enderror" id="confirm_password" name="confirm_password">
           @error('confirm_password')
             <div class="invalid-feedback text-danger">
               {{ $message }}

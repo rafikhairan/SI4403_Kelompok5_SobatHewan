@@ -21,6 +21,7 @@ class User extends Authenticatable
         'id'
     ];
 
+    public $timestamps = false;
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -36,4 +37,12 @@ class User extends Authenticatable
      *
      * @var array<string, string>
      */
+
+    public function petOwner() {
+        return $this->hasOne(PetOwner::class);
+    }
+
+    public function vet() {
+        return $this->hasOne(Vet::class);
+    }
 }

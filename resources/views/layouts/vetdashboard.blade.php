@@ -36,10 +36,10 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav align-items-center ms-auto navbar-end">
           <a class="nav-link mx-2 {{ Request::is('vetdashboard') ? 'active-link' : '' }}" href="/vetdashboard">Appointment</a>
-          <a class="nav-link mx-2 {{ Request::is('vetdashboard/article*') ? 'active-link' : '' }}" href="/vetdashboard/article">Article</a>
+          <a class="nav-link mx-2 {{ Request::is('vetdashboard/articles*') ? 'active-link' : '' }}" href="/vetdashboard/articles">Article</a>
           <div class="nav-item dropdown">
-            <a class="nav-link align-items-center d-flex {{ Request::is('myprofile') || Request::is('petprofile') ? 'active-link' : '' }}" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Vet <img class="ms-2 rounded-circle nav-profile-picture" src="/images/no-pp.jpg" alt="Profile Picture">
+            <a class="nav-link dropdown-toggle align-items-center d-flex {{ Request::is('myprofile') || Request::is('petprofile') ? 'active-link' : '' }}" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Drh. {{ auth()->user()->vet->name }}
             </a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="/myprofile"><i class="fa-solid fa-user me-2"></i> My Profile</a></li>
@@ -59,15 +59,27 @@
 
   {{-- Content --}}
   <div class="container-fluid" style="background-color: #A0D6E7">
-    <div class="container">
-      <div class="row min-vh-100">
-        <div class="col-3">
-          <div class="left-side-vet">
+    <div class="container min-vh-100">
+      <div class="row gx-5 spacing">
+        <div class="col-3 d-flex align-items-end position-relative">
+          <div class="position-absolute left-side-vet" style="top: -20px">
             <img src="/images/vet/ilustration.png" alt="">
+          </div>
+          <div class="shadow bg-white rounded-4 p-4 text-center position-relative d-flex align-items-center vet-id-card">
+            <div>
+              <img src="{{ asset('storage/images/vets/' . auth()->user()->vet->image) }}" class="rounded-circle img-fluid" alt="">
+              <h3 class="my-2">Drh. {{ auth()->user()->vet->name }}</h3>
+              <span>{{ auth()->user()->vet->phone }}</span>
+              <span>{{ auth()->user()->email }}</span>
+            </div>
           </div>
         </div>
         <div class="col-9">
-          @yield('content')
+          <div class="rounded-4 shadow bg-white position-relative vetdashboard-container" style="margin-top: 100px">
+            <div class="p-4">
+              @yield('content')
+            </div>
+          </div>
         </div>
       </div>
     </div>

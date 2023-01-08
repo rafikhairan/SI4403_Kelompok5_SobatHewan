@@ -8,12 +8,12 @@
     height: 39rem;
 }
 
-.back-container {
+.home-container {
     top: 20px;
-    left: 16px;
+    left: 18px;
 }
 
-.back {
+.home {
     font-size: 25px;
 }
 
@@ -50,9 +50,17 @@
     color: #124c5f !important;
 }
 
+.button-primary:hover {
+    background-color: #aed4cc !important;
+}
+
 .button-secondary {
     background-color: #124c5f !important;
     color: white !important;
+}
+
+.button-secondary:hover {
+    background-color: #0f4050 !important;
 }
 
 .navbar-end {
@@ -141,6 +149,16 @@
     font-family: "Pangolin", cursive !important;
 }
 
+.article-title {
+    min-height: 45px;
+}
+
+.article-img {
+    height: 335px !important;
+    width: 385px !important;
+    object-fit: cover;
+}
+
 .foods-stuffs h2::after,
 .vet h2::after,
 .article h2::after,
@@ -163,7 +181,7 @@
 }
 
 .card-body-product {
-    height: 105px;
+    height: 140px;
 }
 
 .card-img {
@@ -180,13 +198,13 @@
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
 }
 
-.product-desc {
+.product-desc-container {
     height: 150px;
     overflow: auto;
 }
 
-.img-product {
-    width: 80%;
+.product-img {
+    width: 80% !important;
 }
 
 .bag-btn {
@@ -243,8 +261,8 @@
     font-family: "Rubik", sans-serif;
 }
 
-.new-article-img {
-    width: 90%;
+.not-added {
+    font-family: "Rubik", sans-serif;
 }
 
 .article-header-img {
@@ -269,8 +287,8 @@
 }
 
 .profile-picture {
-    width: 340px;
-    height: 340px;
+    width: 340px !important;
+    height: 340px !important;
     object-fit: cover;
 }
 
@@ -278,7 +296,6 @@
     width: 340px;
     height: 340px;
     line-height: 340px;
-    font-size: 50px;
 }
 
 .change-img:hover {
@@ -287,11 +304,24 @@
     transition: 0.2s;
 }
 
+.product-img-preview-container {
+    width: 340px;
+    min-height: 340px;
+    height: fit-content;
+    display: none;
+    margin-top: 31px;
+}
+
+.vet-img-preview {
+    width: 340px !important;
+    height: 340px !important;
+    object-fit: cover;
+}
+
 .dashboard h3 {
     font-family: "Pangolin", cursive;
 }
 
-.dashboard span,
 .dashboard h5,
 .dashboard h2,
 .dashboard h1,
@@ -299,7 +329,7 @@
     font-family: "Rubik", sans-serif;
 }
 
-.dashboard .container {
+.dashboard-title {
     margin-top: 30px;
 }
 
@@ -324,13 +354,23 @@
 
 .vetdashboard-container {
     width: 100%;
-    height: 34rem;
+    height: 35rem;
 }
 
 .article-container,
 .appointment-container {
-    height: 26rem;
+    height: 28rem;
     overflow: auto;
+}
+
+.big-img {
+    width: 90%;
+    height: 450px !important;
+    object-fit: cover;
+}
+
+.article-container h4 {
+    font-family: "Rubik", sans-serif;
 }
 
 .create {
@@ -338,7 +378,8 @@
     right: 20px;
 }
 
-.appointment-profile-picture {
+.appointment-profile-picture,
+.article-profile-picture {
     height: 55px;
     width: 55px;
     object-fit: cover;
@@ -349,13 +390,42 @@
     font-size: 16px;
 }
 
-.tes {
-    position: sticky;
-    top: 0;
-}
-
 .modal-body h5,
 .modal-body span,
 .modal-header h1 {
     font-family: "Rubik", sans-serif;
+}
+
+.modal-product-img {
+    width: 90% !important;
+}
+
+.vet-id-card {
+    width: 100%;
+    height: 280px;
+}
+
+.vet-id-card img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+}
+
+.vet-id-card h3 {
+    font-family: "Rubik", sans-serif;
+    color: #ddca69;
+}
+
+.vet-id-card span {
+    font-family: "Rubik", sans-serif;
+}
+
+table th,
+table td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.profile-picture-text {
+    font-family: "Asul", sans-serif !important;
 }

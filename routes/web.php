@@ -1,8 +1,15 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminPetOwnersController;
+use App\Http\Controllers\AdminProductsController;
+use App\Http\Controllers\AdminVetsController;
+use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\VetDashboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,9 +23,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('petowner.home');
-});
+Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/login', [LoginController::class, 'index'])->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
@@ -27,9 +32,8 @@ Route::post('/logout', [LoginController::class, 'logout']);
 Route::get('/register', [RegisterController::class, 'index']);
 Route::post('/register', [RegisterController::class, 'store']);
 
-Route::get('/article', function () {
-    return view('petowner.article');
-});
+Route::get('/articles', [ArticleController::class, 'index']);
+Route::get('/articles/{article:slug}', [ArticleController::class, 'show']);
 
 Route::get('/vet', function () {
     return view('petowner.vet');
@@ -42,26 +46,23 @@ Route::get('/shop', function () {
 Route::get('/myprofile', [ProfileController::class, 'index']);
 Route::post('/myprofile', [ProfileController::class, 'update']);
 
-Route::get('/dashboard', function () {
-    return view('admin.dashboard');
-});
+Route::get('/dashboard', [AdminController::class, 'index']);
 
-Route::get('/dashboard/products', function () {
-    return view('admin.products');
-});
+Route::resource('/dashboard/products', AdminProductsController::class)->except('show');
 
 Route::get('/dashboard/orders', function () {
     return view('admin.orders');
 });
 
-Route::get('/vetdashboard', function () {
-    return view('vet.appointment');
-});
+Route::get('/dashboard/users', [AdminPetOwnersController::class, 'index']);
 
-Route::get('/vetdashboard/article', function () {
-    return view('vet.article');
-});
+Route::get('/dashboard/vets', [AdminVetsController::class, 'index']);
+Route::get('/dashboard/vets/create', [AdminVetsController::class, 'create']);
+Route::post('/dashboard/vets', [AdminVetsController::class, 'store']);
+Route::delete('/dashboard/vets/{vet:vet_id}', [AdminVetsController::class, 'destroy']);
 
-Route::get('/vetdashboard/article/create', function () {
-    return view('vet.create');
-});
+Route::get('/vetdashboard', [VetDashboardController::class, 'index']);
+Route::get('/vetdashboard/articles', [VetDashboardController::class, 'articles']);
+Route::get('/vetdashboard/articles/create', [VetDashboardController::class, 'create']);
+Route::post('/vetdashboard/articles', [VetDashboardController::class, 'store']);
+Route::delete('/vetdashboard/articles/{article:slug}', [VetDashboardController::class, 'destroy']);
