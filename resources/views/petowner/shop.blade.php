@@ -1,12 +1,23 @@
-@extends('layouts.admin')
+@extends('layouts.main')
 
 @section('content')
-  <div class="container mb-5">
-    {{-- Products --}}
-    <div class="underline position-relative">
-      <h3 class="m-0 mb-5">Products</h3>
+  <div class="container foods-stuffs spacing">
+    <div class="row justify-content-between gx-5">
+      <div class="col-6">
+        <div class="underline position-relative">
+          <h2>Foods and Stuffs Recommendation</h2>
+        </div>
+      </div>
+      <div class="col-3 d-flex justify-content-end">
+        <form action="" style="width: 100%">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search..." name="search" value="">
+            <button class="btn button-secondary" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+          </div>
+        </form>
+      </div>
     </div>
-    <div class="row g-4">
+    <div class="row g-4 mt-2">
       <div class="col-3">
         <div class="card card-product" data-bs-toggle="modal" data-bs-target="#exampleModal">
           <div class="d-flex card-img">
@@ -79,7 +90,7 @@
       </div>
     </div>
   </div>
-  
+
   {{-- Modal --}}
   <div class="modal fade" id="exampleModal" tabindex="-1"  aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
