@@ -9,6 +9,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\ShopController;
 use App\Http\Controllers\VetDashboardController;
 use Illuminate\Support\Facades\Route;
 
@@ -39,9 +40,7 @@ Route::get('/vet', function () {
     return view('petowner.vet');
 });
 
-Route::get('/shop', function () {
-    return view('petowner.shop');
-});
+Route::get('/shop', [ShopController::class, 'index']);
 
 Route::get('/myprofile', [ProfileController::class, 'index']);
 Route::post('/myprofile', [ProfileController::class, 'update']);

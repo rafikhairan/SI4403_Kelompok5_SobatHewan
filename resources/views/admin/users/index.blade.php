@@ -53,7 +53,7 @@
                       <form action="/dashboard/vets/{{ $petOwner->per_owner_id }}" method="post" class="d-inline">
                         @method('delete')
                         @csrf
-                        <button class="badge bg-danger border-0" onclick="return confirm('Are you sure?')"><i class="fa-regular fa-circle-xmark"></i></button>
+                        <button class="badge bg-danger border-0" onclick="return confirm('Are you sure?')"><i class="bi bi-eraser"></i></button>
                       </form>
                     </td>
                   </tr>

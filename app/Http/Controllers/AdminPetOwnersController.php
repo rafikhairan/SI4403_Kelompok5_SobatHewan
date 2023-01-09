@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class AdminPetOwnersController extends Controller
 {
     public function index() {
-        $petOwners = PetOwner::all();
+        $petOwners = PetOwner::with('user')->get();
 
         return view('admin.users.index', compact('petOwners'));
     }

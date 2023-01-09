@@ -89,8 +89,8 @@
           </div>
         @endforeach
       @else
-        <div class="d-flex align-items-center justify-content-center" style="height: 450px">
-          <h4 class="text-muted">No product has been added</h4>
+        <div class="d-flex align-items-center justify-content-center" style="height: 400px">
+          <h4 class="text-muted not-added">No product has been added</h4>
         </div>
       @endif
     </div>
@@ -113,7 +113,7 @@
         </div>
       @else
         <div class="d-flex align-items-center justify-content-center" style="height: 400px">
-          <h4 class="text-muted not-added">Article has not been added</h4>
+          <h4 class="text-muted not-added">No article has been added</h4>
         </div>
       @endif
     </div>
