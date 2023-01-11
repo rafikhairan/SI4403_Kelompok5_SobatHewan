@@ -25,7 +25,7 @@
       @if ($products->count())
         @foreach ($products as $product)    
           <div class="col-3 mb-4">
-            <div class="card card-product" data-bs-toggle="modal" data-bs-target="#productDetail">
+            <div class="card card-product-vet card-product" data-bs-toggle="modal" data-bs-target="#productDetail">
               <div class="d-flex card-img">
                 <img src="{{ asset('storage/images/products/' . $product->image) }}" class="product-img m-auto" alt="..." />
               </div>
