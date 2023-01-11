@@ -10,7 +10,7 @@
         </div>
       </div>
       <div class="col-6 text-end">
-        <a href="vets/create" class="btn button-secondary ms-2">Add new product</a>
+        <a href="products/create" class="btn button-secondary ms-2">Add new product</a>
       </div>
     </div>
     <div class="row mt-4">
