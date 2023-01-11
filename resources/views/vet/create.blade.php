@@ -1,4 +1,4 @@
-@extends('layouts.vetdashboard')
+@extends('layouts.vet')
 
 @section('content')
   <div class="row justify-content-between">
@@ -14,7 +14,7 @@
   <div class="mt-4 ps-1 pe-4 article-container">
     <form action="/vetdashboard/articles" method="post" class="mb-4" enctype="multipart/form-data">
       @csrf
-      <div class="mb-3">
+      <div class="mb-2">
         <label for="title" class="form-label">Title</label>
         <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" autofocus value="{{ old('title') }}">
         @error('title')
@@ -23,9 +23,9 @@
           </div>
         @enderror 
       </div>
-      <div class="mb-3">
+      <div class="mb-2">
         <label for="image" class="form-label">Post Image</label>
-        <img class="img-preview img-fluid mb-3 col-6" alt="">
+        <img class="img-preview img-fluid mb-2 col-6" alt="">
         <input class="form-control @error('image') is-invalid @enderror" type="file" id="image" name="image" onchange="previewImage()">
         @error('title')
           <div class="invalid-feedback text-danger">
@@ -33,7 +33,7 @@
           </div>
         @enderror 
       </div>
-      <div class="mb-3">
+      <div class="mb-2">
         <label for="body" class="form-label">Body</label>
         <input id="body" type="hidden" name="body" value="{{ old('body') }}">
         <trix-editor input="body" class="@error('body') border-danger @enderror" style="min-height: 200px"></trix-editor>
@@ -59,6 +59,10 @@
       </div>
     </form>
   </div>
+@endsection
+
+@section('vet-card')
+  @include('partials.vet-card')
 @endsection
 
 @section('myscript')

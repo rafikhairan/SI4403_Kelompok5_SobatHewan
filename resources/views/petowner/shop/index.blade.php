@@ -8,20 +8,17 @@
           <h2>Foods and Stuffs</h2>
         </div>
       </div>
-      <div class="col-3 d-flex justify-content-end">
-        <form action="" style="width: 100%">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search..." name="search" value="">
-            <button class="btn button-secondary" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-          </div>
-        </form>
-      </div>
+      @auth
+        <div class="col-4 d-flex justify-content-end align-items-start">
+          <a href="/shop/cart" class="btn button-secondary ms-2 position-relative"><i class="bi bi-bag"></i><span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger count-cart">{{ $carts->sum('quantity') }}</span></a>
+        </div>
+      @endauth
     </div>
     <div class="row g-4 mt-2">
       @if ($products->count())
         @foreach ($products as $product)    
           <div class="col-3 mb-4">
-            <div class="card card-product" data-bs-toggle="modal" data-bs-target="#productDetail">
+            <div class="card card-product-vet" data-bs-toggle="modal" data-bs-target="#productDetail">
               <div class="d-flex justify-content-center align-items-center p-1 card-img">
                 <img src="{{ asset('storage/images/products/' . $product->image) }}" class="product-img" alt="..." />
               </div>
@@ -57,6 +54,12 @@
 @section('myscript')
   <script>
     const products = document.querySelectorAll('.card-product');
+    const countCart = document.querySelector('.count-cart');
+    const search = document.querySelector('.search');
+
+    if(countCart.textContent == 0) {
+      countCart.classList.add('d-none');
+    }
 
     products.forEach((product) => {
       product.addEventListener('click', function() {
@@ -80,6 +83,8 @@
     function updateModal(dataProduct) {
       const modalContent = document.querySelector('.modal-content');
       modalContent.innerHTML = `
+      <form action="/shop/cart/${dataProduct.slug}/add" method="post">
+        @csrf
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="productDetail">Product Detail</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal""></button>
@@ -93,7 +98,8 @@
               <span class="text-muted">${dataProduct.category}</span>
               <h5>${dataProduct.name}</h5>
               <span class="d-block my-2 product-stock">${dataProduct.stock}</span>
-              <h5 class="fw-bold mb-4">${dataProduct.price}</h5>
+              <h5 class="fw-bold">${dataProduct.price}</h5>
+              <input class="form-control my-4" type="number" value="1" min="1" max="99" id="quantity" name="quantity" style="width: 70px" />
               <h5>Description</h5>
               <div class="product-desc-container">
                 <span>${dataProduct.description}</span>
@@ -102,12 +108,9 @@
           </div>
         </div>
         <div class="modal-footer">
-          <form action="/dashboard/products/${dataProduct.slug}" method="post">
-            @method('delete')
-            @csrf
-            <button type="submit" class="btn button-secondary"><i class="bi bi-bag-plus"></i></button>
-          </form>
-        </div>`;
+          <button type="submit" class="btn button-secondary"><i class="bi bi-bag-plus"></i></button>
+        </div>
+      </form>`;
     };
   </script>
 @endsection

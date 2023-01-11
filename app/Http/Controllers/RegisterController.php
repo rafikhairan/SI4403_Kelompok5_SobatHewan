@@ -22,7 +22,6 @@ class RegisterController extends Controller
 
         $id = User::create([
             'email' => $request->email,
-            'name' => $request->name,
             'password' => bcrypt($request->password),
             'role' => 'pet-owner'
         ])->id;
@@ -33,6 +32,6 @@ class RegisterController extends Controller
             'name' => $request->name
         ]);
 
-        return redirect('/login');
+        return redirect('/login')->with('success', 'Registration is successful, please login');
     }
 }

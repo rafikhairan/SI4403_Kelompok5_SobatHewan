@@ -8,7 +8,7 @@
     <div class="row gx-4 mt-4">
       <div class="col-4 mb-4">
         <div class="rounded-3 d-flex flex-column align-items-center justify-content-evenly shadow dashboard-info">
-          <h2>Rp. 0</h2>
+          <h2>@currency($orders->sum('subtotal'))</h2>
           <div class="bg-white rounded d-flex align-items-center justify-content-center dashboard-info-text">
             <h4 class="m-0">Total Income</h4>
           </div>

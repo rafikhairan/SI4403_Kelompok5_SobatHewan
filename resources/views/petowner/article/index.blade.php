@@ -8,14 +8,6 @@
           <h2>Articles</h2>
         </div>
       </div>
-      <div class="col-3 d-flex justify-content-end">
-        <form action="" style="width: 100%">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search..." name="search" value="{{ request('search') }}">
-            <button class="btn button-secondary" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-          </div>
-        </form>
-      </div>
     </div>
     @if ($articles->count())    
       <div class="row align-items-center mt-4">
@@ -35,8 +27,8 @@
               <div class="card-img-top p-2">
                 <img src="{{ asset('storage/images/articles/' . $article->image) }}" class="rounded-3 img-fluid article-img" alt="{{ $article->image }}">
               </div>
-              <div class="card-body mt-2">
-                <h5 class="article-title d-flex align-items-center">{{ Str::limit($article->title, 70) }}</h5>
+              <div class="card-body mt-2 h-100">
+                <h5 class="article-title d-flex align-items-center fs-5">{{ Str::limit($article->title, 70) }}</h5>
                 <p class="card-text text-muted mt-3">{{ $article->excerpt }}</p>
                 <a href="/articles/{{ $article->slug }}" class="btn button-secondary px-3 py-2 mt-3 rounded-1">Read More</a>
               </div>
@@ -45,10 +37,8 @@
         @endforeach
       </div>
     @else
-      <div class="row">
-        <div class="col d-flex align-items-center justify-content-center" style="height: 400px">
-          <h4 class="text-muted not-added">Article has not been added</h4>
-        </div>
+      <div class="d-flex align-items-center justify-content-center" style="height: 400px">
+        <h4 class="text-muted not-added">Article has not been added</h4>
       </div>
     @endif
   </div>

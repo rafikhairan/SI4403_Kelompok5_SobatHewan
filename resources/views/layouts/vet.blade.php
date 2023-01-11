@@ -38,11 +38,11 @@
           <a class="nav-link mx-2 {{ Request::is('vetdashboard') ? 'active-link' : '' }}" href="/vetdashboard">Appointment</a>
           <a class="nav-link mx-2 {{ Request::is('vetdashboard/articles*') ? 'active-link' : '' }}" href="/vetdashboard/articles">Article</a>
           <div class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle align-items-center d-flex {{ Request::is('myprofile') || Request::is('petprofile') ? 'active-link' : '' }}" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link dropdown-toggle align-items-center d-flex {{ Request::is('vetdashboard/editprofile') ? 'active-link' : '' }}" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Drh. {{ auth()->user()->vet->name }}
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="/myprofile"><i class="fa-solid fa-user me-2"></i> My Profile</a></li>
+              <li><a class="dropdown-item" href="/vetdashboard/editprofile"><i class="fa-solid fa-user me-2"></i>Edit Profile</a></li>
               <li><hr class="dropdown-divider"></li>
               <li>
                 <form action="/logout" method="post">
@@ -65,14 +65,7 @@
           <div class="position-absolute left-side-vet" style="top: -20px">
             <img src="/images/vet/ilustration.png" alt="">
           </div>
-          <div class="shadow bg-white rounded-4 p-4 text-center position-relative d-flex align-items-center vet-id-card">
-            <div>
-              <img src="{{ asset('storage/images/vets/' . auth()->user()->vet->image) }}" class="rounded-circle img-fluid" alt="">
-              <h3 class="my-2">Drh. {{ auth()->user()->vet->name }}</h3>
-              <span>{{ auth()->user()->vet->phone }}</span>
-              <span>{{ auth()->user()->email }}</span>
-            </div>
-          </div>
+          @yield('vet-card')
         </div>
         <div class="col-9">
           <div class="rounded-4 shadow bg-white position-relative vetdashboard-container" style="margin-top: 100px">

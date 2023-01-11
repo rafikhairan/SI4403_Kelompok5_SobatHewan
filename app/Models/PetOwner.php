@@ -14,4 +14,16 @@ class PetOwner extends Model
     public function user() {
         return $this->belongsTo(User::class);
     }
+
+    public function cart() {
+        return $this->hasMany(Cart::class);
+    }
+
+    public function order() {
+        return $this->hasMany(Order::class);
+    }
+
+    public function appointment() {
+        return $this->hasOne(Appointment::class, 'pet_owner_id', 'pet_owner_id');
+    }
 }

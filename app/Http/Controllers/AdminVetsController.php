@@ -38,7 +38,6 @@ class AdminVetsController extends Controller
         
         $id = User::create([
             'email' => $request->email,
-            'name' => $request->name,
             'password' => bcrypt($request->password),
             'role' => 'vet'
         ])->id;

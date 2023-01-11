@@ -31,7 +31,7 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies();
 
         Gate::define('super-admin', function(User $user) {
-            return $user->role === 'super-admin';
+            return $user->email === 'superadmin@gmail.com';
         });
     }
 }

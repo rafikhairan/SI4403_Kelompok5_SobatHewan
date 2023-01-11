@@ -18,4 +18,8 @@ class Vet extends Model
     public function article() {
         return $this->hasMany(Article::class, 'vet_id', 'vet_id');
     }
+
+    public function appointment() {
+        return $this->hasMany(Appointment::class, 'vet_id', 'vet_id');
+    }
 }

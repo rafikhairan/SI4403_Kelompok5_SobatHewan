@@ -145,7 +145,8 @@
 .article h2,
 .article-title,
 .profile h2,
-.my-article h3 {
+.my-article h3,
+.my-order h2 {
     font-family: "Pangolin", cursive !important;
 }
 
@@ -164,7 +165,8 @@
 .article h2::after,
 .profile h2::after,
 .dashboard h3::after,
-.my-article h3:after {
+.my-article h3:after,
+.my-order h2:after {
     content: "";
     height: 3px;
     width: 70%;
@@ -174,13 +176,13 @@
     left: 0;
 }
 
-.card-body-product h5,
-.card-body-product span,
-.card-body-product h4 {
+.card-body h5,
+.card-body span,
+.card-body h4 {
     font-family: "Rubik", sans-serif;
 }
 
-.card-body-product {
+.card-body {
     height: 140px;
 }
 
@@ -188,12 +190,12 @@
     height: 304px;
 }
 
-.card-product {
+.card-product-vet {
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
     transition: 0.2s ease;
 }
 
-.card-product:hover {
+.card-product-vet:hover {
     cursor: pointer;
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
 }
@@ -218,27 +220,21 @@
     border-radius: 30px 30px 0 0;
 }
 
-.card-body-product span {
+.card-body span {
     font-size: 16px;
 }
 
-.card-body-product h5 {
+.card-body h5 {
     font-size: 16px;
 }
 
-.card-body-product h4 {
+.card-body h4 {
     font-size: 18px;
 }
 
 .card-button {
     right: 15px;
     bottom: 15px;
-}
-
-.img-vet {
-    width: 225px;
-    height: 280px;
-    object-fit: cover;
 }
 
 .card-body-vet {
@@ -358,7 +354,8 @@
 }
 
 .article-container,
-.appointment-container {
+.appointment-container,
+.vet-profile-container {
     height: 28rem;
     overflow: auto;
 }
@@ -405,7 +402,7 @@
     height: 280px;
 }
 
-.vet-id-card img {
+.vet-id-card .pp {
     width: 120px;
     height: 120px;
     object-fit: cover;
@@ -428,4 +425,91 @@ table td {
 
 .profile-picture-text {
     font-family: "Asul", sans-serif !important;
+}
+
+.cart {
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.cart:hover {
+    cursor: pointer;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.make-appointment-container-left * {
+    font-family: "Rubik", sans-serif;
+}
+
+.make-appointment-container-left,
+.make-appointment-container-right,
+.payment-container-left,
+.payment-container-right {
+    padding: 40px !important;
+    width: 95%;
+}
+
+.make-appointment-header {
+    background-color: #88a5af;
+    color: #124c5f;
+}
+
+.make-appointment-header img {
+    height: 150px;
+    width: 150px;
+    object-fit: cover;
+}
+
+.make-appointment-body h4 {
+    color: #124c5f;
+}
+
+.make-appointment-footer h4 {
+    color: #124c5f;
+}
+
+.radio-custom input[type="radio"] {
+    display: none;
+}
+
+.radio-custom label {
+    color: #124c5f;
+    border: 1px solid #124c5f;
+    border-radius: 15px;
+    width: 100%;
+    text-align: center;
+    padding: 6px 12px;
+}
+
+.radio-custom input[type="radio"]:checked + label {
+    background-color: rgba(18, 76, 95, 0.5);
+}
+
+.payment-container-right h3 {
+    font-family: "Pangolin", cursive;
+}
+
+.order-summary * {
+    font-family: "Rubik", sans-serif;
+}
+
+.total-container {
+    background-color: rgba(18, 76, 95, 0.5);
+}
+
+.total-container * {
+    font-family: "Pangolin", cursive;
+}
+
+.list-product tr td {
+    padding: 15px 0;
+}
+
+.remove:hover {
+    color: #dc3545;
+    cursor: pointer;
 }

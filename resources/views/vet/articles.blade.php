@@ -1,4 +1,4 @@
-@extends('layouts.vetdashboard')
+@extends('layouts.vet')
 
 @section('content')
   <div class="row justify-content-between">
@@ -53,4 +53,8 @@
       </div>
     @endif
   </div>
+@endsection
+
+@section('vet-card')
+  @include('partials.vet-card')
 @endsection

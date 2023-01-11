@@ -10,10 +10,10 @@ class ArticleController extends Controller
     public function index() {
         $articles = Article::latest()->get();
 
-        return view('petowner.articles', compact('articles'));
+        return view('petowner.article.index', compact('articles'));
     }
 
     public function show(Article $article) {
-        return view('petowner.article', compact('article'));
+        return view('petowner.article.detail', compact('article'));
     }
 }

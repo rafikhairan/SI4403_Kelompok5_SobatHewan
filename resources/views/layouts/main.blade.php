@@ -17,7 +17,7 @@
   <script src="https://kit.fontawesome.com/5173488c2b.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  {{-- Awal Navbar --}}
+  {{-- Navbar --}}
   <nav class="navbar navbar-expand-lg fixed-top bg-white">
     <div class="container pb-2">
       <a class="navbar-brand" href="#"><img src="/images/logo.png" alt="Logo" width="200px"></a>
@@ -27,17 +27,18 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav align-items-center ms-auto navbar-end">
           <a class="nav-link mx-2 {{ Request::is('/') ? 'active-link' : '' }}" href="/">Home</a>
-          <a class="nav-link mx-2 {{ Request::is('vet') ? 'active-link' : '' }}" href="/vet">Vet</a>
-          <a class="nav-link mx-2 {{ Request::is('shop') ? 'active-link' : '' }}" href="/shop">Shop</a>
+          <a class="nav-link mx-2 {{ Request::is('vet*') ? 'active-link' : '' }}" href="/vet">Vet</a>
+          <a class="nav-link mx-2 {{ Request::is('shop*') ? 'active-link' : '' }}" href="/shop">Shop</a>
           <a class="nav-link mx-2 {{ Request::is('articles*') ? 'active-link' : '' }}" href="/articles">Articles</a>
           @auth  
+            <a class="nav-link mx-2 {{ Request::is('myorder*') ? 'active-link' : '' }}" href="/myorder">My Order</a>
+            <a class="nav-link mx-2 {{ Request::is('myappointment*') ? 'active-link' : '' }}" href="/myappointment">My Appointment</a>
             <div class="nav-item dropdown">
               <a class="nav-link align-items-center d-flex {{ Request::is('myprofile') || Request::is('petprofile') ? 'active-link' : '' }}" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                {{ auth()->user()->petOwner->name }} <img class="ms-2 rounded-circle nav-profile-picture" src="@if(auth()->user()->profile_picture != null){{ asset('storage/images/profile-pictures/' . auth()->user()->petOwner->rofile_picture) }}@else{{ "/images/no-pp.jpg" }}@endif" alt="{{ auth()->user()->petOwner->name }}">
+                {{ auth()->user()->petOwner->name }} <img class="ms-2 rounded-circle nav-profile-picture" src="@if(auth()->user()->petOwner->image != null){{ asset('storage/images/petowner-pp/' . auth()->user()->petOwner->image) }}@else{{ "/images/no-pp.jpg" }}@endif" alt="{{ auth()->user()->petOwner->name }}">
               </a>
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="/myprofile"><i class="fa-solid fa-user me-2"></i> My Profile</a></li>
-                <li><a class="dropdown-item" href="#"><i class="fa-solid fa-paw me-2"></i>Pet Profile</a></li>
                 <li><hr class="dropdown-divider"></li>
                 <li>
                   <form action="/logout" method="post">
@@ -54,13 +55,11 @@
       </div>
     </div>
   </nav>
-  {{-- Akhir Navbar --}}
 
-  {{-- Awal Content --}}
+  {{-- Content --}}
   @yield('content')
-  {{-- Akhir Content --}}
 
-  {{-- Awal Footer --}}
+  {{-- Footer --}}
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
     <path fill="#f6faf9" fill-opacity="1" d="M0,224L48,208C96,192,192,160,288,170.7C384,181,480,235,576,234.7C672,235,768,181,864,186.7C960,192,1056,256,1152,266.7C1248,277,1344,235,1392,213.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
   </svg>
@@ -80,7 +79,7 @@
           <p class="fw-bold">Follow on social</p>
           <div class="d-flex">
             <a class="text-muted" href="" style="font-size: 40px"><i class="bi bi-facebook"></i></a>
-            <a class="text-muted ms-4" href="https://www.instagram.com/aliansoftware.id" style="font-size: 40px"><i class="bi bi-instagram"></i></a>
+            <a class="text-muted ms-4" href="" style="font-size: 40px"><i class="bi bi-instagram"></i></a>
           </div>
         </div>
         <div class="col-3 text-end">
@@ -91,11 +90,10 @@
       </div>
     </div>
   </div>
-  {{-- Akhir Footer --}}
 
-  {{-- Awal My Script --}}
+  {{-- My Script --}}
   @yield('myscript')
-  {{-- Akhir My Script --}}
+
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>

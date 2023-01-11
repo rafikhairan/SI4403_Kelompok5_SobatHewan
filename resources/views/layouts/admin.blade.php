@@ -27,8 +27,8 @@
           </div>
           <nav class="side-nav ms-4 position-relative">
             <a class="nav-link mb-2 {{ Request::is('dashboard') ? 'active-link' : '' }}" href="/dashboard"><i class="fa-solid fa-house me-2"></i>Dashboard</a>
-            <a class="nav-link mb-2 {{ Request::is('dashboard/products') ? 'active-link' : '' }}" href="/dashboard/products"><i class="fa-solid fa-store me-2"></i>Products</a>
-            <a class="nav-link mb-2 {{ Request::is('dashboard/orders') ? 'active-link' : '' }}" href="/dashboard/orders"><i class="fa-solid fa-cash-register me-2"></i>Orders</a>
+            <a class="nav-link mb-2 {{ Request::is('dashboard/products*') ? 'active-link' : '' }}" href="/dashboard/products"><i class="fa-solid fa-store me-2"></i>Products</a>
+            <a class="nav-link mb-2 {{ Request::is('dashboard/orders*') ? 'active-link' : '' }}" href="/dashboard/orders"><i class="fa-solid fa-cash-register me-2"></i>Orders</a>
             <div class="position-absolute admin-logout">
               <form action="/logout" method="post">
                 @csrf
@@ -37,7 +37,7 @@
             </div>
             @can('super-admin')
               <h6 class="mt-4 mb-2 text-muted">Administrator</h6>
-              <a class="nav-link mb-2 {{ Request::is('dashboard/users*') ? 'active-link' : '' }}" href="/dashboard/users"><i class="fa-solid fa-user me-2"></i>Users</a>
+              <a class="nav-link mb-2 {{ Request::is('dashboard/petowners*') ? 'active-link' : '' }}" href="/dashboard/petowners"><i class="fa-solid fa-user me-2"></i>Pet Owners</a>
               <a class="nav-link mb-2 {{ Request::is('dashboard/vets*') ? 'active-link' : '' }}" href="/dashboard/vets"><i class="fa-solid fa-user-doctor me-2"></i>Vets</a>
             @endcan
           </nav>

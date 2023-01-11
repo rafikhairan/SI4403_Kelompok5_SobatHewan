@@ -3,24 +3,16 @@
 @section('content')
   <div class="container mb-4 dashboard-title">
     {{-- Products --}}
-    <div class="underline position-relative">
-      <h3 class="m-0 mb-5">Products</h3>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-12 border border-2 border-start-0 border-end-0 py-2">
-      <div class="container d-flex">
-        <form action="" style="width: 100%">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search..." name="search" value="">
-            <button class="btn button-secondary" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-          </div>
-        </form>
-        <a href="products/create" class="btn button-secondary ms-2">Add</a>
+    <div class="row">
+      <div class="col-6">
+        <div class="underline position-relative">
+          <h3 class="m-0 mb-5">Products</h3>
+        </div>
+      </div>
+      <div class="col-6 text-end">
+        <a href="vets/create" class="btn button-secondary ms-2">Add new product</a>
       </div>
     </div>
-  </div>
-  <div class="container">
     <div class="row mt-4">
       @if (session()->has('success'))
         <div class="col-12">
@@ -37,7 +29,7 @@
               <div class="d-flex card-img">
                 <img src="{{ asset('storage/images/products/' . $product->image) }}" class="product-img m-auto" alt="..." />
               </div>
-              <div class="card-body card-body-product d-flex align-items-center bg-light text-break rounded rounded-top-0">
+              <div class="card-body card-body-product d-flex align-items-center bg-light text-break rounded rounded-top-0 mt-3">
                 <div>
                   <span class="text-muted product-category">{{ $product->category->name }}</span>
                   <h5 class="product-name">{{ $product->name }}{{ $product->weight == null ? '' : ' | ' . $product->weight }}</h5>

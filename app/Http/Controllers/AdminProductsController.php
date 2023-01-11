@@ -126,7 +126,7 @@ class AdminProductsController extends Controller
         $data['price'] = join($price);
 
         if($request->file('image')) {
-            Storage::delete($product->image);
+            Storage::delete('images/products/' . $product->image);
 
             $image = explode('.', $request->file('image')->getClientOriginalName())[0];
             $image = $image . '-' . time() . '.' . $request->file('image')->extension();
