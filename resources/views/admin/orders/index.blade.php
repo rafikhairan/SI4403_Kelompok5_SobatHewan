@@ -49,7 +49,7 @@
         </div>
       @else
         <div class="d-flex align-items-center justify-content-center" style="height: 450px">
-          <h4 class="text-muted">No product has been added</h4>
+          <h4 class="text-muted">No orders have been received yet</h4>
         </div>
       @endif
     </div>

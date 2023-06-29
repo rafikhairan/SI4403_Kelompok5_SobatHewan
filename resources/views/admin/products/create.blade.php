@@ -84,7 +84,7 @@
         </form>
       </div>
       <div class="col-4 d-flex justify-content-center">
-        <div class="rounded-4 border justify-content-center align-items-center product-img-preview-container">
+        <div class="rounded-4 border justify-content-center align-items-center -preview-container">
           <img class="rounded-4 product-img-preview" width="90%"/>
         </div>
       </div>

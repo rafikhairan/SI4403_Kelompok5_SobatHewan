@@ -33,7 +33,7 @@
                 <div>
                   <span class="text-muted product-category">{{ $product->category->name }}</span>
                   <h5 class="product-name">{{ $product->name }}{{ $product->weight == null ? '' : ' | ' . $product->weight }}</h5>
-                  <span class="my-2 d-block product-stock">Stock: {{ $product->stock }}</span>
+                  <span class="my-2 d-block product-stock {{ $product->stock <= 5 ? "text-danger" : "" }}">Stock: {{ $product->stock }}</span>
                   <h5 class="fw-bold product-price">@currency($product->price)</h5>
                   <span class="product-slug d-none">{{ $product->slug }}</span>
                   <span class="product-description d-none">{{ $product->description  }}</span>
